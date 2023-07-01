@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Math Challenge</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+  </style>
+</head>
+<body>
+  <h1>Desafio Matemático</h1>
+  <div id="question"></div>
+  <div id="itext"><input type="text" id="answer" style="text-align:center;"></div>
+  <button id="isubmit" onclick="checkAnswer()">Enviar</button>
+  <button id="istart" onclick="startGame()" >Começar</button>
+  <button id="irestart" onclick="restart()">Reiniciar</button>
+  
+  <div id="result">Pontuação: <span id="scoreValue">0</span></div>
+  
+
+  <script>
+    var currentQuestionIndex = 0;
+    var score = 0;
+    var timeLimit = 60; // seconds
+    var timer;
+
+    function startGame() {
+      document.getElementById("answer").disabled = false;
+      generateQuestion();
+      startTimer();
+      document.getElementById("result").textContent = "";
+      document.getElementById("answer").value = "";
+      score = 0;
+      document.getElementById("result").style.display = "none";
+    }
+
+    function generateQuestion() {
+      var operators = ['+', '-', '*', '/'];
+      var operator = operators[Math.floor(Math.random() * operators.length)];
+      var num1 = Math.floor(Math.random() * 10) + 1;
+      var num2 = Math.floor(Math.random() * 10) + 1;
+
+      var questionElement = document.getElementById("question");
+
+      switch (operator) {
+        case '+':
+          questionElement.textContent = num1 + " + " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: (num1 + num2).toString()};
+          break;
+        case '-':
+          questionElement.textContent = num1 + " - " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: (num1 - num2).toString()};
+          break;
+        case '*':
+          questionElement.textContent = num1 + " * " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: (num1 * num2).toString()};
+          break;
+        case '/':
+          questionElement.textContent = num1 * num2 + " / " + num2;
+          questions[currentQuestionIndex] = {question: questionElement.textContent, answer: num1.toString()};
+          break;
+      }
+    }
+
+    function checkAnswer() {
+      var answerElement = document.getElementById("answer");
+      var userAnswer = answerElement.value;
+
+      if (userAnswer === questions[currentQuestionIndex].answer) {
+        score++;
+        document.getElementById("result").textContent = "Correto!";
+      } else {
+        document.getElementById("result").textContent = "Errado!";
+      }
+
+      currentQuestionIndex++;
+      answerElement.value = "";
+
+      if (currentQuestionIndex === questions.length) {
+        endGame();
+      } else {
+        generateQuestion();
+      }
+    }
+
+    function startTimer() {
+      var timeLeft = timeLimit;
+      var timerElement = document.getElementById("timer");
+      timerElement.textContent = timeLeft;
+      
+
+      timer = setInterval(function() {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+
+        if (timeLeft === 0) {
+          endGame();
+        }
+      }, 1000);
+    }
+
+    function endGame() {
+      clearInterval(timer);
+      document.getElementById("question").textContent = "Fim de Jogo!";
+      document.getElementById("result").textContent = "Sua pontuação: " + score;
+      document.getElementById("answer").disabled = true;
+    }
+
+    var questions = new Array(5);
+
+    function restart() {
+      location.reload();
+    }
+  </script>
+</body>
