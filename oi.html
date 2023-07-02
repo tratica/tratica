@@ -131,6 +131,12 @@
         if (timeLeft === 0) {
           clearInterval(timer);
           timerElement.textContent = "Acabou o Tempo!";
+          document.getElementById('result').style.display = 'block';
+          document.getElementById("result").textContent = "Sua pontuação: " + score;
+          document.getElementById('question').style.display = 'none';
+          document.getElementById('question').style.display = 'none';
+          document.getElementById('isubmit').style.display = 'none';
+          document.getElementById('istart').style.display = 'none';
         }
       }, 1000);
     }
