@@ -109,6 +109,10 @@
       document.getElementById("result").textContent = "Sua pontuação: " + score;
       document.getElementById("answer").disabled = true;
       document.getElementById('timer').style.display = 'none';
+      document.getElementById('question').style.display = 'none';
+      document.getElementById('isubmit').style.display = 'none';
+      document.getElementById('istart').style.display = 'none';
+      document.getElementById('itext').style.display = 'none';
     }
 
     var questions = new Array(60);
@@ -134,9 +138,9 @@
           document.getElementById('result').style.display = 'block';
           document.getElementById("result").textContent = "Sua pontuação: " + score;
           document.getElementById('question').style.display = 'none';
-          document.getElementById('question').style.display = 'none';
           document.getElementById('isubmit').style.display = 'none';
           document.getElementById('istart').style.display = 'none';
+          document.getElementById('itext').style.display = 'none';
         }
       }, 1000);
     }
