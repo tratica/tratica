@@ -72,8 +72,10 @@
       if (userAnswer === questions[currentQuestionIndex].answer) {
         score++;
         document.getElementById("result").textContent = "Correto!";
+        document.getElementById('result').style.display = 'block';
       } else {
         document.getElementById("result").textContent = "Errado!";
+        document.getElementById('result').style.display = 'block';
       }
 
       currentQuestionIndex++;
