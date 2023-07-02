@@ -15,7 +15,7 @@
   <button id="istart" onclick="startGame()" onclick="startTimer">Começar</button>
   <button id="irestart" onclick="restart()">Reiniciar</button>
   
-  <div id="result">Pontuação: <span id="scoreValue">0</span></div>
+  <div id="result">Pontuação: <span id="score">0</span></div>
 
   <div id="timer">60</div>
   
@@ -105,12 +105,13 @@
     function endGame() {
       clearInterval(timer);
       document.getElementById("question").textContent = "Fim de Jogo!";
-      document.getElementById("result").textContent = "Sua pontuação: " + result;
+      document.getElementById("result").style.display = "block";
+      document.getElementById("result").textContent = "Sua pontuação: " + score;
       document.getElementById("answer").disabled = true;
       document.getElementById('timer').style.display = 'none';
     }
 
-    var questions = new Array(30);
+    var questions = new Array(60);
 
     function restart() {
       location.reload();
