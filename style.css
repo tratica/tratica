@@ -75,15 +75,17 @@ div#result {
     text-align: center;
 }
 
+/*
 button#isubmit {
     text-align: center;
     margin: auto;
-    display: block; 
+    display: none; 
     height: 90px;
     width: 312px;
     font-family: 'Luckiest Guy', cursive;
     font-size: 30px;
 }
+*/
 
 button#istart {
     text-align: center;
@@ -103,6 +105,7 @@ button#irestart {
     width: 312px;
     font-family: 'Luckiest Guy', cursive;
     font-size: 30px;
+    display: none;
 }
 
 div#timer {
@@ -111,4 +114,18 @@ div#timer {
     display: none;
     font-family: 'Luckiest Guy', cursive;
     font-size: 100px;
+}
+
+div#itext {
+    display: none;
+}
+
+input#isubmit {
+    text-align: center;
+    margin: auto;
+    display: none; 
+    height: 90px;
+    width: 312px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 30px;
 }
