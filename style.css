@@ -56,6 +56,7 @@ div#result {
     font-family: 'Luckiest Guy', cursive;
     font-size: 60px;
     text-align: center;
+    display: none;
 }
 
 
