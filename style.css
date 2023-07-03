@@ -1,20 +1,5 @@
 @charset "UTF-8";
 
-@keyframes mover {
-    0% {
-      left: 0;
-    }
-    50% {
-      left: 200px;
-    }
-    100% {
-      left: 0;
-    }
-  }
-  .caixa {
-    animation: mover 3s infinite;
-  }
-
 html{
     overflow-y:hidden;
     overflow-x:hidden;
