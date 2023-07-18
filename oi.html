@@ -28,6 +28,9 @@
     var score = 0;
     var timeLimit = 60; // seconds
     var timer;
+    var ans = document.querySelector('input#answer')
+
+    
 
     function startGame() {
       document.getElementById("answer").disabled = false;
@@ -41,7 +44,8 @@
       document.getElementById("isubmit").style.display = 'block';
       document.getElementById("itext").style.display = 'block';
       document.getElementById("irestart").style.display = 'block';
-
+      
+      ans.focus()
     }
 
     function generateQuestion() {
@@ -70,6 +74,7 @@
           questions[currentQuestionIndex] = {question: questionElement.textContent, answer: num1.toString()};
           break;
       }
+      ans.focus()
     }
 
     function checkAnswer() {
